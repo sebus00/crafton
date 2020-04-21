@@ -65,8 +65,6 @@ export default {
       required: true
     }
   },
-  mounted() {
-  },
   methods: {
     modulo(n, m) {
       return ((n % m) + m) % m;
@@ -87,16 +85,21 @@ export default {
     background-color: #000;
 
     &__container {
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
-        top: 0;
-        height: 100%;
-        padding-top: calc(25vh - 60px);
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      top: 0;
+      height: 100%;
+      padding-top: calc(25vh - 60px);
+      padding-left: 50px;
 
-        @media screen and (min-width: 960px) {
-          padding-top: calc(50vh - 60px);
-        }
+      @media screen and (min-width: 600px) {
+        padding-top: calc(50vh - 60px);
+      }
+
+      @media screen and (min-width: 1264px) {
+        padding-left: 0;
+      }
     }
 
     &__wrapper {
@@ -120,19 +123,23 @@ export default {
 
     &__indicators {
       position: absolute;
-      right: 50px;
-      top: 50%;
-      transform: translateY(-50%);
       display: flex;
-      flex-direction: column;
+      flex-direction: row;
+      bottom: 50px;
+      right: 50%;
+      transform: translateX(50%);
 
-      @media screen and (min-width: 600px) {
+      @media screen and (min-width: 960px) {
+        flex-direction: column;
+        bottom: unset;
+        top: 50%;
         right: 100px;
+        transform: translateY(-50%);
       }
     }
 
     &__indicator {
-      margin-bottom: 25px;
+      margin-right: 25px;
       height: 15px;
       width: 15px;
       border: 0;
@@ -140,8 +147,12 @@ export default {
       background-color: #FFF;
       cursor: pointer;
 
+      @media screen and (min-width: 960px) {
+        margin-bottom: 25px;
+      }
+
       &:last-of-type {
-        margin-bottom: 0;
+        margin: 0
       }
 
       &:focus {
@@ -154,7 +165,9 @@ export default {
     }
 
     &__arrows {
-      background: none;
+      @media screen and (max-width: 400px) {
+        display: none;
+      }
     }
 
     &__arrow {
