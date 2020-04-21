@@ -13,7 +13,10 @@
     </ul>
     <div class="container carousel__container">
       <div class="carousel__text">
-        <h1 class="color--white">Będziesz się uczyć z ciekawością. <br> <span class="color--primary">Obiecujemy.</span></h1>
+        <h1 class="color--white">
+          Będziesz się uczyć z ciekawością. <br>
+          <span class="color--primary">Obiecujemy.</span>
+        </h1>
         <div class="carousel__links">
           <a class="carousel__link" href="/" target="_blank">Zobacz więcej</a>
           <a class="carousel__link" href="/" target="_blank">Umów się z aniołem</a>
@@ -42,7 +45,8 @@
       <button
         v-for="index in images.length"
         :key="`carouselIndicator${index - 1}`"
-        :class="['carousel__indicator', {'carousel__indicator--active' : (index - 1) === activeItem}]"
+        :class="['carousel__indicator',
+          {'carousel__indicator--active' : (index - 1) === activeItem}]"
         @click="moveCarousel(index - 1)"
       >
       </button>
@@ -133,8 +137,12 @@ export default {
         flex-direction: column;
         bottom: unset;
         top: 50%;
-        right: 100px;
+        right: 50px;
         transform: translateY(-50%);
+      }
+
+      @media screen and (min-width: 1500px) {
+        right: 100px;
       }
     }
 

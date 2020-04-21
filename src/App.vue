@@ -1,12 +1,18 @@
 <template>
   <div>
-    <Carousel :images='carouselImages' />
     <Navigation :logo='logo' :menuItems='menuItems' />
+    <Carousel :images='carouselImages' />
+    <ForWhom />
+    <ForWhat />
+    <WithWho />
   </div>
 </template>
 <script>
-import Carousel from './components/Carousel';
 import Navigation from './components/Navigation';
+import Carousel from './components/Carousel';
+import ForWhom from './components/RowSections/ForWhom';
+import ForWhat from './components/RowSections/ForWhat';
+import WithWho from './components/RowSections/WithWho';
 import sliderImage1 from './assets/images/sliderImage.jpg';
 import logo from './assets/images/logo.png';
 
@@ -14,13 +20,17 @@ export default {
   name: 'App',
   data() {
     return {
-      carouselImages: [sliderImage1, 'https://unsplash.it/1500/800', 'https://unsplash.it/1400/800'],
+      carouselImages: [
+        sliderImage1,
+        'https://unsplash.it/1500/800',
+        'https://unsplash.it/1400/800'
+      ],
       logo,
       menuItems: ['I stopnia', 'II stopnia', 'Podyplomowe', 'Szkolenia', 'Usługi']
     };
   },
   components: {
-    Carousel, Navigation
+    Carousel, Navigation, ForWhom, ForWhat, WithWho
   }
 };
 </script>
@@ -44,8 +54,9 @@ export default {
 
   .container {
     width: 100%;
-    max-width: 1200px;
-    padding: 0 10px;
+    max-width: 1220px;
+    padding: 0 15px;
+    margin: 0 auto;
   }
 
   .color {
@@ -72,5 +83,13 @@ export default {
     font-size: 36px;
     font-weight: 800;
     margin: 0;
+
+    @media screen and (min-width: 600px) {
+      line-height: 60px;
+    }
+  }
+
+  a {
+    text-decoration: none;
   }
 </style>

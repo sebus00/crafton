@@ -46,10 +46,15 @@ export default {
     align-items: center;
     left: 50%;
     transform: translateX(-50%);
+    z-index: 1;
 
     &__menu {
       list-style: none;
-      display: flex;
+      display: none;
+
+      @media screen and (min-width: 960px) {
+        display: flex;
+      }
 
       &__item {
         color: #fff;
@@ -62,9 +67,12 @@ export default {
         margin-right: 51px;
         padding-left: 16px;
         cursor: pointer;
+        white-space: nowrap;
 
         &:last-of-type {
-          margin: 0;
+          @media screen and (min-width: 1264px) {
+            margin: 0;
+          }
         }
       }
     }

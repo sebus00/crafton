@@ -26,7 +26,8 @@ module.exports = {
       }
     ],
     'quotes': [2, 'single', { avoidEscape: true }],
-    'max-len': ['error', { code: 150 }],
-    'no-unused-vars': "off"
+    'max-len': ['error', { code: 100 }],
+    'no-unused-vars': 'off',
+    'no-trailing-spaces': "off"
   }
 };
