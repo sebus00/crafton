@@ -16,6 +16,7 @@
     <div slot="image" class="row-section__image-side">
       <div class="row-section__image-side__wrapper">
         <img :src="sectionImage" alt="" />
+        <div class="row-section__image-side__label">Nowość</div>
       </div>
     </div>
   </RowSection>
@@ -26,7 +27,7 @@ import RowSection from './RowSection';
 import sectionImage from '../../assets/images/rowSectionImage2.jpg';
 
 export default {
-  name: 'for-what',
+  name: 'ForWhat',
   data() {
     return {
       sectionImage

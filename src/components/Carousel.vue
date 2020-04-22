@@ -57,7 +57,7 @@
 <script>
 
 export default {
-  name: 'carousel',
+  name: 'Carousel',
   data() {
     return {
       activeItem: 0
@@ -209,13 +209,13 @@ export default {
       margin-bottom: 18px;
       padding: 0 30px;
       background: transparent;
-      color: #fff;
+      color: #FFF;
       text-decoration: none;
       text-transform: uppercase;
       border-radius: 30px;
       font-size: 14px;
       font-weight: 800;
-      line-height: 60px;
+      line-height: 54px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -233,7 +233,7 @@ export default {
 
       &:hover {
         box-shadow: 0 11px 24px rgba(0, 0, 0, 0.12);
-        background-color: #fff;
+        background-color: #FFF;
         color: #000;
       }
     }

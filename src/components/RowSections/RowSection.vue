@@ -1,6 +1,6 @@
 <template>
-  <div class="container row-section">
-    <div :class="['row-section__wrapper', {'row-section__wrapper--reversed' : reversed}]">
+  <div class="row-section">
+    <div :class="['row-section__wrapper', {'row-section__wrapper--reversed' : reversed}, 'container']">
       <slot name="text"></slot>
       <slot name="image"></slot>
     </div>
@@ -9,7 +9,7 @@
 
 <script>
 export default {
-  name: 'row-section',
+  name: 'RowSection',
   props: {
     reversed: {
       type: Boolean,
@@ -23,6 +23,7 @@ export default {
   .row-section {
     display: flex;
     align-items: center;
+    padding: 100px 0;
 
     @media screen and (min-width: 1264px) {
       height: 100vh;
@@ -32,7 +33,6 @@ export default {
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding: 50px 0;
 
       @media screen and (min-width: 1264px) {
         padding: 0;
@@ -88,10 +88,28 @@ export default {
       position: relative;
 
       &__wrapper {
-        >img {
-          min-width: 100%;
-          min-height: 100%;
-        }
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+      }
+
+      &__label {
+        font-weight: 800;
+        font-size: 16px;
+        line-height: 42px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #FFF;
+        text-transform: uppercase;
+        background-image: linear-gradient(90deg, #006E85, #00B6DC);
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 250px;
+        transform: translate(-35%, 45%) rotate(-45deg);
       }
 
       &--video {
@@ -99,7 +117,7 @@ export default {
 
         .row-section__image-side {
           &__wrapper {
-            >img {
+            > img {
               opacity: .5;
             }
           }

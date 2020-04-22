@@ -34,7 +34,7 @@ import RowSection from './RowSection';
 import sectionImage from '../../assets/images/rowSectionImage1.jpg';
 
 export default {
-  name: 'for-whom',
+  name: 'ForWhom',
   data() {
     return {
       sectionImage

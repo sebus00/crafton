@@ -44,7 +44,7 @@ import sectionImage from '../../assets/images/rowSectionImage3.jpg';
 import playImage from '../../assets/images/play.png';
 
 export default {
-  name: 'with-who',
+  name: 'WithWho',
   data() {
     return {
       sectionImage,

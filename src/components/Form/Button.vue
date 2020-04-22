@@ -1,0 +1,49 @@
+<template>
+  <button class="button" @click="onClick">
+    {{ label }}
+  </button>
+</template>
+<script>
+export default {
+  name: 'Button',
+  props: {
+    label: {
+      type: String,
+      required: true
+    },
+    onClick: {
+      type: Function,
+      default: () => {}
+    }
+  }
+};
+</script>
+
+<style scoped lang="scss">
+  .button {
+    padding: 0 30px;
+    height: 54px;
+    color: #FFF;
+    text-decoration: none;
+    text-transform: uppercase;
+    border-radius: 30px;
+    font-weight: 800;
+    font-size: 14px;
+    line-height: 54px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #00B6DC;
+    box-shadow: 0 11px 24px rgba(0, 182, 220, 0.12);
+    white-space: nowrap;
+    cursor: pointer;
+
+    &:hover {
+      box-shadow: 0 10px 16px rgba(0, 182, 220, 0.5);
+    }
+
+    &:focus {
+      outline: none;
+    }
+  }
+</style>
