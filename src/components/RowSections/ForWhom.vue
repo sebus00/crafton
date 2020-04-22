@@ -1,6 +1,6 @@
 <template>
   <RowSection>
-    <div slot="text" class="row-section__text">
+    <div slot="text" class="row-section__text-side">
       <h2>Dla kogo?</h2>
       <p>
         Dedykowane nauczycielom posiadającym przygotowanie pedagogiczne, którzy chcą uzyskać
@@ -21,8 +21,10 @@
         <li>Przygotowanie pedagogiczne</li>
       </ul>
     </div>
-    <div slot="image" class="row-section__image">
-      <img :src="sectionImage" alt="" />
+    <div slot="image" class="row-section__image-side">
+      <div class="row-section__image-side__wrapper">
+        <img :src="sectionImage" alt="" />
+      </div>
     </div>
   </RowSection>
 </template>
