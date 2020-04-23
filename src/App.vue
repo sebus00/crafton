@@ -6,6 +6,7 @@
     <ForWhat />
     <WithWho />
     <Contact />
+    <Footer />
   </div>
 </template>
 <script>
@@ -15,6 +16,7 @@ import ForWhom from './components/RowSections/ForWhom';
 import ForWhat from './components/RowSections/ForWhat';
 import WithWho from './components/RowSections/WithWho';
 import Contact from './components/Contact';
+import Footer from './components/Footer';
 import sliderImage1 from './assets/images/sliderImage.jpg';
 import logo from './assets/images/logo.png';
 
@@ -32,7 +34,7 @@ export default {
     };
   },
   components: {
-    Carousel, Navigation, ForWhom, ForWhat, WithWho, Contact
+    Carousel, Navigation, ForWhom, ForWhat, WithWho, Contact, Footer
   }
 };
 </script>

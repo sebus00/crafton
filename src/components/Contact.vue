@@ -49,9 +49,5 @@ export default {
       line-height: 32px;
       color: #7B94A5;
     }
-
-    @media screen and (min-width: 1264px) {
-      height: 100vh;
-    }
   }
 </style>
