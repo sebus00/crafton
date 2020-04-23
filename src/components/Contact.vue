@@ -24,7 +24,7 @@ export default {
     background-color: #f5f8fa;
     display: flex;
     align-items: center;
-    padding: 50px;
+    padding: 50px 0;
 
     @media screen and (min-width: 1264px) {
       height: 100vh;

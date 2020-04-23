@@ -1,8 +1,9 @@
 <template>
-  <div :class="['text-field', {'text-field--active' : focusedInput}, {'text-field--valued' :  value}]">
+  <div :class="['text-field', {'text-field--active' : focusedInput}, {'text-field--valued' : value}, {'text-field--error' : error}]">
     <input
       v-if="tag === 'input'"
-      v-model="value"
+      :value="value"
+      @input="$emit('input', $event.target.value)"
       :id="name"
       :name="name"
       :type="type"
@@ -15,10 +16,10 @@
     />
     <textarea
       v-else-if="tag === 'textarea'"
-      v-model="value"
+      :value="value"
+      @input="$emit('input', $event.target.value)"
       :id="name"
       :name="name"
-      type="text"
       :title="label"
       :pattern="pattern"
       class="text-field__input text-field__input--area"
@@ -38,11 +39,15 @@ export default {
   name: 'Text-Field',
   data() {
     return {
-      focusedInput: false,
-      value: ''
+      focusedInput: false
     };
   },
   props: {
+    value: {},
+    error: {
+      type: Boolean,
+      default: false
+    },
     tag: {
       type: String,
       default: 'input'
@@ -111,6 +116,14 @@ export default {
       box-shadow: 0 8px 8px rgba(145, 154, 159, 0.16);
     }
 
+    &--error {
+      border: 1px solid #FF4148;
+
+      .text-field__input {
+        color: #FF4148;
+      }
+    }
+
     &__label {
       position: absolute;
       left: 15px;
@@ -159,20 +172,6 @@ export default {
       top: calc(100% + 3px);
       left: 3px;
       color: red;
-    }
-
-    &__submit {
-      border: none;
-      background-color: green;
-      color: #fff;
-      text-transform: uppercase;
-      font-size: 1rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      margin-top: 30px;
-      border-radius: 4px;
     }
   }
 </style>

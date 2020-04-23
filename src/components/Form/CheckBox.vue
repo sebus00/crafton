@@ -2,10 +2,11 @@
   <div class="checkbox">
     <input
       type="checkbox"
-      v-model="value"
+      :checked="value"
+      @change="$emit('change', $event.target.checked)"
       :id="name"
       :name="name"
-      class="checkbox__input"
+      :class="['checkbox__input', {'checkbox__input--error' : error}]"
     />
     <label :for="name" class="checkbox__label">
       {{ label }}
@@ -15,12 +16,12 @@
 <script>
 export default {
   name: 'CheckBox',
-  data() {
-    return {
-      value: false
-    };
-  },
   props: {
+    value: {},
+    error: {
+      type: Boolean,
+      default: false
+    },
     label: {
       type: String,
       required: true
@@ -63,6 +64,12 @@ export default {
     &__input {
       position: absolute;
       opacity: 0;
+
+      &--error {
+        + .checkbox__label:before {
+          border: 1px solid #FF4148;
+        }
+      }
 
       &:checked + .checkbox__label:after {
         content: '';

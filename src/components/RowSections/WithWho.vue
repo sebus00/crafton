@@ -4,17 +4,13 @@
       <div slot="text" class="row-section__text-side">
         <h2>Z kim?</h2>
         <p>
-          Ciekawość jest najpotężniejszą cechą ludzką, która popycha ludzi do ciągłego rozwoju. CDV
-          to miejsce, w którym studenci z zainteresowaniem i z przyjemnością zdobywają wiedzę.
-          Zarówno studenci, absolwenci, jak i pracownicy to osoby nie tylko ciekawe świata, ale
-          także pełne pasji w odkrywaniu nowych rzeczy i w pozytywny sposób wpływające na swoje
-          otoczenie.
+          Ciekawość jest najpotężniejszą cechą ludzką, która popycha ludzi do ciągłego rozwoju. CDV to miejsce, w którym studenci z zainteresowaniem i
+          z przyjemnością zdobywają wiedzę. Zarówno studenci, absolwenci, jak i pracownicy to osoby nie tylko ciekawe świata, ale także pełne pasji w
+          odkrywaniu nowych rzeczy i w pozytywny sposób wpływające na swoje otoczenie.
         </p>
         <p>
-          Nasze kierunki studiów są interesujące i innowacyjne, tworzone we współpracy z
-          pracodawcami oraz na podstawie trendów w światowej gospodarce i kierunku zmian na
-          dynamicznym rynku pracy. Nasi absolwenci znajdują pracę zgodną ze swoimi zainteresowaniami
-          i wykształceniem.
+          Nasze kierunki studiów są interesujące i innowacyjne, tworzone we współpracy z pracodawcami oraz na podstawie trendów w światowej gospodarce
+          i kierunku zmian na dynamicznym rynku pracy. Nasi absolwenci znajdują pracę zgodną ze swoimi zainteresowaniami i wykształceniem.
         </p>
       </div>
       <div slot="image" class="row-section__image-side row-section__image-side--video">
@@ -28,9 +24,8 @@
     </RowSection>
     <Modal v-if="isModalOpen" :onClose="closeVideoModal">
       <iframe
-        id="yt-video" slot width="560" height="315" src="https://www.youtube.com/embed/aKoOEq6HTHw"
-        frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope;
-        picture-in-picture" allowfullscreen
+        id="yt-video" slot width="560" height="315" src="https://www.youtube.com/embed/aKoOEq6HTHw" frameborder="0" allow="accelerometer; autoplay;
+        encrypted-media; gyroscope; picture-in-picture" allowfullscreen
       >
       </iframe>
     </Modal>
