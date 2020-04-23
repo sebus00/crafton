@@ -1,17 +1,19 @@
 <template>
-  <div class="navigation container">
-    <div class="navigation__logo">
-      <img :src="logo" alt="logo"/>
+  <div :class="['navigation', {'navigation--sticked' : sticked}]">
+    <div class="navigation__wrapper container">
+      <div class="navigation__logo">
+        <img :src="logo" alt="logo"/>
+      </div>
+      <ul class="navigation__menu">
+        <li
+          v-for="(item, index) in menuItems"
+          :key="`menuItem${index}`"
+          class="navigation__menu__item"
+        >
+          {{ item }}
+        </li>
+      </ul>
     </div>
-    <ul class="navigation__menu">
-      <li
-        v-for="(item, index) in menuItems"
-        :key="`menuItem${index}`"
-        class="navigation__menu__item"
-      >
-        {{ item }}
-      </li>
-    </ul>
   </div>
 </template>
 
@@ -20,6 +22,7 @@ export default {
   name: 'Navigation',
   data() {
     return {
+      sticked: false
     };
   },
   props: {
@@ -32,7 +35,10 @@ export default {
       required: true
     }
   },
-  methods: {
+  mounted() {
+    window.addEventListener('scroll', () => {
+      this.sticked = window.scrollY > 0;
+    });
   }
 };
 </script>
@@ -40,13 +46,42 @@ export default {
 <style scoped lang="scss">
   .navigation {
     position: fixed;
-    top: 40px;
+    width: 100%;
+    top: 0;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 1;
+    justify-content: center;
+    z-index: 5;
+    transition: padding 1s ease-out;
+    padding: 40px 0 10px 0;
+
+    &::before {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-color: #000;
+      transform-origin: top;
+      transform: scaleY(0);
+      transition: transform 1s ease-out;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: -1;
+    }
+
+    &--sticked {
+      padding-top: 10px;
+
+      &::before {
+        transform: scaleY(1);
+      }
+    }
+
+    &__wrapper {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
 
     &__menu {
       list-style: none;
