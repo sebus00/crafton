@@ -28,7 +28,7 @@
     <label :for="name" class="text-field__label">
       {{ label }}
     </label>
-    <span class="text-field__message">
+    <span class="text-field__message" v-show="error">
       {{ errorMessage }}
     </span>
   </div>
@@ -89,6 +89,8 @@ export default {
 </script>
 
 <style scoped lang="scss">
+  @import "../../assets/styles/variables.scss";
+
   .text-field {
     width: 100%;
     position: relative;
@@ -118,10 +120,10 @@ export default {
     }
 
     &--error {
-      border-color: #FF4148;
+      border-color: $error-color;
 
       .text-field__input {
-        color: #FF4148;
+        color: $error-color;
       }
     }
 
@@ -170,9 +172,9 @@ export default {
 
     &__message {
       position: absolute;
-      top: calc(100% + 1px);
+      top: calc(100% + 3px);
       left: 5px;
-      color: #FF4148;
+      color: $error-color;
       font-size: 13px;
       font-weight: 400;
     }

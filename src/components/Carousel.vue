@@ -45,8 +45,7 @@
       <button
         v-for="index in images.length"
         :key="`carouselIndicator${index - 1}`"
-        :class="['carousel__indicator',
-          {'carousel__indicator--active' : (index - 1) === activeItem}]"
+        :class="['carousel__indicator', {'carousel__indicator--active' : (index - 1) === activeItem}]"
         @click="moveCarousel(index - 1)"
       >
       </button>

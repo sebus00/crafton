@@ -30,6 +30,7 @@ module.exports = {
     'no-unused-vars': 'off',
     'no-trailing-spaces': 'off',
     'object-curly-newline': 'off',
-    'no-param-reassign': 'off'
+    'no-param-reassign': 'off',
+    'func-names': 'off'
   }
 };

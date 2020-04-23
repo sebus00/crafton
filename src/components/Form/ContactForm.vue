@@ -1,5 +1,5 @@
 <template>
-  <form ref="form" class="contact-form">
+  <form ref="contactForm" class="contact-form">
     <div class="contact-form__row">
       <TextField
         name="firstName" label="Imię" :value="firstName.value" :error="firstName.error" :error-message="firstName.errorMessage"
@@ -25,7 +25,13 @@
       danych osobowych jest dobrowolne oraz iż zostałem poinformowany o prawie żądania dostępu do moich danych osobowych, ich zmiany oraz usunięcia."
       :value="agreement.value" :error="agreement.error" @change="onInputHandler('agreement', $event)" :error-message="agreement.errorMessage"
     />
-    <Button class="contact-form__submit" label="Wyślij" :onClick="send"/>
+    <Button class="contact-form__submit" label="Wyślij" :onClick="submit"/>
+    <div
+      :class="['contact-form__alert', {'contact-form__alert--visible' : responseMessage !== ''}]"
+      :style="[{ background: responseResult ? 'green' : '#FF4148'}]"
+    >
+      {{ responseMessage }}
+    </div>
   </form>
 </template>
 
@@ -41,6 +47,8 @@ export default {
   },
   data() {
     return {
+      responseMessage: '',
+      responseResult: '',
       firstName: {
         value: '',
         pattern: '^[A-Za-ząćęłńóśźż-]+$',
@@ -78,9 +86,26 @@ export default {
       this.$data[key].value = value;
       this.$data[key].error = false;
     },
-    send(e) {
+    async submit(e) {
       e.preventDefault();
-      this.validate();
+      if (this.validate()) {
+        this.send();
+      }
+    },
+    send() {
+      const request = new XMLHttpRequest();
+      request.open('GET', '/contact.php', true);
+      request.onload = () => {
+        if (request.status >= 200 && request.status < 400) {
+          this.handleResult(true);
+        } else {
+          this.handleResult(false);
+        }
+      };
+      request.onerror = () => {
+        this.handleResult(false);
+      };
+      request.send();
     },
     validate() {
       let validateResult = true;
@@ -103,12 +128,22 @@ export default {
           }
         }
       });
+      return validateResult;
+    },
+    handleResult(success) {
+      this.responseMessage = success ? 'Wiadomość została wysłana. Dziękujemy za kontakt!'
+        : 'Podczas wysyłania wiadomości wystąpił błąd. Prosimy spróbować ponownie.';
+      this.responseResult = success;
+      setTimeout(() => { this.responseMessage = ''; }, 3000);
+      if (success) this.$refs.contactForm.reset();
     }
   }
 };
 </script>
 
 <style scoped lang="scss">
+  @import "../../assets/styles/variables.scss";
+
   .contact-form {
     width: 100%;
     max-width: 582px;
@@ -116,6 +151,7 @@ export default {
     display: flex;
     flex-direction: column;
     align-items: center;
+    position: relative;
 
     &__row {
       width: 100%;
@@ -132,6 +168,28 @@ export default {
 
     &__submit {
       margin: 40px auto 0 auto;
+    }
+
+    &__alert {
+      position: absolute;
+      bottom: -300px;
+      left: calc(50% - 150px);
+      width: 300px;
+      background: green;
+      border-radius: 8px;
+      padding: 20px;
+      text-align: center;
+      font-weight: 600;
+      font-size: 16px;
+      line-height: 22px;
+      color: #FFF;
+      opacity: 0;
+      transition: transform 1s cubic-bezier(0.31, 0.25, 0.5, 1.5), opacity 0.1s ease-in-out;
+
+      &--visible {
+        opacity: 1;
+        transform: translateY(-270px);
+      }
     }
   }
 </style>

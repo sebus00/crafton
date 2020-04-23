@@ -11,7 +11,7 @@
     <label :for="name" class="checkbox__label">
       {{ label }}
     </label>
-    <span class="checkbox__message">
+    <span class="checkbox__message" v-show="error">
       {{ errorMessage }}
     </span>
   </div>
@@ -78,7 +78,7 @@ export default {
 
       &--error {
         + .checkbox__label:before {
-          border-color: #FF4148;
+          border-color: $error-color;
         }
       }
 
@@ -102,9 +102,9 @@ export default {
 
     &__message {
       position: absolute;
-      top: calc(100% + 1px);
+      top: 100%;
       left: 5px;
-      color: #FF4148;
+      color: $error-color;
       font-size: 13px;
       font-weight: 400;
     }
