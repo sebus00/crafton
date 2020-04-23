@@ -20,6 +20,8 @@ export default {
 </script>
 
 <style scoped lang="scss">
+  @import "../../assets/styles/variables.scss";
+
   .row-section {
     display: flex;
     align-items: center;
@@ -68,6 +70,10 @@ export default {
         margin: 32px 0;
       }
 
+      a {
+        color: $primary-color;
+      }
+
       ul {
         list-style: none;
         margin: 48px 0 0 0;
@@ -104,7 +110,7 @@ export default {
         justify-content: center;
         color: #FFF;
         text-transform: uppercase;
-        background-image: linear-gradient(90deg, #006E85, #00B6DC);
+        background-image: linear-gradient(90deg, #006E85, $primary-color);
         position: absolute;
         left: 0;
         top: 0;
@@ -140,8 +146,8 @@ export default {
               left: 50%;
               top: 50%;
               transform: translate(-50%, -50%);
-              box-shadow: 0 5px 24px rgba(0, 182, 220, 0.41);
-              background-color: #00B6DC;
+              box-shadow: 0 5px 24px rgbaPrimaryColor(.41);
+              background-color: $primary-color;
               z-index: 1;
               border-radius: 50%;
             }

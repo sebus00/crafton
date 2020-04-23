@@ -20,6 +20,8 @@ export default {
 </script>
 
 <style scoped lang="scss">
+  @import "../../assets/styles/variables.scss";
+
   .button {
     padding: 0 30px;
     height: 54px;
@@ -33,13 +35,13 @@ export default {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #00B6DC;
-    box-shadow: 0 11px 24px rgba(0, 182, 220, 0.12);
+    background: $primary-color;
+    box-shadow: 0 11px 24px rgbaPrimaryColor(.12);;
     white-space: nowrap;
     cursor: pointer;
 
     &:hover {
-      box-shadow: 0 10px 16px rgba(0, 182, 220, 0.5);
+      box-shadow: 0 10px 16px rgbaPrimaryColor(.5);;
     }
 
     &:focus {

@@ -20,6 +20,8 @@ export default {
 </script>
 
 <style lang="scss">
+  @import "../../assets/styles/variables.scss";
+
   .modal {
     left: 0;
     top: 0;
@@ -39,7 +41,7 @@ export default {
     &__close {
       width: 27px;
       height: 27px;
-      background: #00B6DC;
+      background: $primary-color;
       border: none;
       position: absolute;
       right: -50px;

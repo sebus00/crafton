@@ -11,7 +11,7 @@
         kwalifikacje nauczycielskie i przygotowanie pedagogiczne, lub słuchaczy legitymujących się wyższym wykształceniem na poziomie studiów
         magisterskich nadających kwalifikacje nauczycielskie i przygotowanie pedagogiczne, zgodnie z Rozporządzeniem Ministra Edukacji Narodowej z
         dnia 1 sierpnia 2017 r. w sprawie szczegółowych kwalifikacji wymaganych od nauczycieli
-        <a class="color--primary" href="/" target="_blank">(Dz.U. 2017 poz. 1575).</a>
+        <a href="/" target="_blank">(Dz.U. 2017 poz. 1575).</a>
       </p>
       <ul>
         Wymagane od kandydata:

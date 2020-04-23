@@ -11,6 +11,9 @@
     <label :for="name" class="checkbox__label">
       {{ label }}
     </label>
+    <span class="checkbox__message">
+      {{ errorMessage }}
+    </span>
   </div>
 </template>
 <script>
@@ -29,15 +32,22 @@ export default {
     name: {
       type: String,
       required: true
+    },
+    errorMessage: {
+      type: String,
+      default: ''
     }
   }
 };
 </script>
 
 <style scoped lang="scss">
+  @import "../../assets/styles/variables.scss";
+
   .checkbox {
     width: 100%;
     margin-bottom: 20px;
+    position: relative;
 
     &__label {
       position: relative;
@@ -58,6 +68,7 @@ export default {
         box-shadow: inset 0.7px 0.7px 1px rgba(0, 0, 0, 0.16);
         left: 0;
         position: absolute;
+        border: 1px solid transparent;
       }
     }
 
@@ -67,7 +78,7 @@ export default {
 
       &--error {
         + .checkbox__label:before {
-          border: 1px solid #FF4148;
+          border-color: #FF4148;
         }
       }
 
@@ -76,17 +87,26 @@ export default {
         position: absolute;
         left: 5px;
         top: 9px;
-        background: #00B6DC;
+        background: $primary-color;
         width: 2px;
         height: 2px;
-        box-shadow: 2px 0 0 #00B6DC,
-        4px 0 0 #00B6DC,
-        4px -2px 0 #00B6DC,
-        4px -4px 0 #00B6DC,
-        4px -6px 0 #00B6DC,
-        4px -8px 0 #00B6DC;
+        box-shadow: 2px 0 0 $primary-color,
+        4px 0 0 $primary-color,
+        4px -2px 0 $primary-color,
+        4px -4px 0 $primary-color,
+        4px -6px 0 $primary-color,
+        4px -8px 0 $primary-color;
         transform: rotate(45deg);
       }
+    }
+
+    &__message {
+      position: absolute;
+      top: calc(100% + 1px);
+      left: 5px;
+      color: #FF4148;
+      font-size: 13px;
+      font-weight: 400;
     }
   }
 </style>

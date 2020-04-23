@@ -21,7 +21,7 @@ export default {
 
 <style scoped lang="scss">
   .contact {
-    background-color: #f5f8fa;
+    background-color: #F5F8FA;
     display: flex;
     align-items: center;
     padding: 50px 0;

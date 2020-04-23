@@ -1,0 +1,7 @@
+$primary-color: #00B6DC;
+
+@function rgbaPrimaryColor($opacity) {
+  @return rgba(0, 182, 220, $opacity);
+}
+
+$secondary-color: #FFCD19;

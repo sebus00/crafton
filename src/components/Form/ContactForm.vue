@@ -2,28 +2,28 @@
   <form ref="form" class="contact-form">
     <div class="contact-form__row">
       <TextField
-        name="firstName" label="Imię" pattern="^[A-Za-ząćęłńóśźż-]+$" :value="firstName.value" :error="firstName.error"
+        name="firstName" label="Imię" :value="firstName.value" :error="firstName.error" :error-message="firstName.errorMessage"
         @input="onInputHandler('firstName', $event)"
       />
       <TextField
-        name="lastName" label="Nazwisko" pattern="^[A-Za-ząćęłńóśźż-]+$" :value="lastName.value" :error="lastName.error"
+        name="lastName" label="Nazwisko" :value="lastName.value" :error="lastName.error" :error-message="lastName.errorMessage"
         @input="onInputHandler('lastName', $event)"
       />
     </div>
     <TextField
-      name="email" label="Adres email" type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" :value="email.value" :error="email.error"
+      name="email" label="Adres email" type="email" :value="email.value" :error="email.error" :error-message="email.errorMessage"
       @input="onInputHandler('email', $event)"
     />
     <TextField
       tag="textarea" name="message" label="Treść wiadomości" :height="162" :value="message.value" :error="message.error"
-      @input="onInputHandler('message', $event)"
+      :error-message="message.errorMessage" @input="onInputHandler('message', $event)"
     />
     <CheckBox
       name="agreement"
       label="Wyrażam zgodę na przetwarzanie moich danych osobowych w rozumieniu ustawy z dnia 29 sierpnia 1997 roku o ochronie danych osobowych oraz
       ustawy z dnia 16 lipca 2004 roku Prawo telekomunikacyjne w celach marketingowych przez Collegium Da Vinci i oświadczam, iż podanie przeze mnie
       danych osobowych jest dobrowolne oraz iż zostałem poinformowany o prawie żądania dostępu do moich danych osobowych, ich zmiany oraz usunięcia."
-      :value="agreement.value" :error="agreement.error" @change="onInputHandler('agreement', $event)"
+      :value="agreement.value" :error="agreement.error" @change="onInputHandler('agreement', $event)" :error-message="agreement.errorMessage"
     />
     <Button class="contact-form__submit" label="Wyślij" :onClick="send"/>
   </form>
@@ -44,27 +44,32 @@ export default {
       firstName: {
         value: '',
         pattern: '^[A-Za-ząćęłńóśźż-]+$',
-        error: false
+        error: false,
+        errorMessage: ''
       },
       lastName: {
         value: '',
         pattern: '^[A-Za-ząćęłńóśźż-]+$',
-        error: false
+        error: false,
+        errorMessage: ''
       },
       email: {
         value: '',
         pattern: '[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,}$',
-        error: false
+        error: false,
+        errorMessage: ''
       },
       message: {
         value: '',
         pattern: '',
-        error: false
+        error: false,
+        errorMessage: ''
       },
       agreement: {
         value: false,
         pattern: '',
-        error: false
+        error: false,
+        errorMessage: ''
       }
     };
   },
@@ -81,15 +86,18 @@ export default {
       let validateResult = true;
       [this.firstName, this.lastName, this.email, this.message, this.agreement].forEach((item) => {
         if (item.value === '') {
+          item.errorMessage = 'Uzupełnij pole';
           item.error = true;
           validateResult = false;
         } else if (item.value === false) {
+          item.errorMessage = 'Zaznacz zgodę';
           item.error = true;
           validateResult = false;
         } else if (item.pattern !== '') {
           const regex = new RegExp(item.pattern);
           const result = item.value.match(regex);
           if (!result || result[0].length === 0) {
+            item.errorMessage = 'Nieprawidłowa wartość';
             item.error = true;
             validateResult = false;
           }

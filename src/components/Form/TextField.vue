@@ -8,7 +8,6 @@
       :name="name"
       :type="type"
       :title="label"
-      :pattern="pattern"
       class="text-field__input"
       @focus="focusInput()"
       @blur="blurInput()"
@@ -21,7 +20,6 @@
       :id="name"
       :name="name"
       :title="label"
-      :pattern="pattern"
       class="text-field__input text-field__input--area"
       :style="{height: `${height}px`}"
       @focus="focusInput()"
@@ -30,7 +28,9 @@
     <label :for="name" class="text-field__label">
       {{ label }}
     </label>
-    <span class="text-field__message"></span>
+    <span class="text-field__message">
+      {{ errorMessage }}
+    </span>
   </div>
 </template>
 
@@ -68,13 +68,13 @@ export default {
       type: String,
       default: 'text'
     },
-    pattern: {
-      type: String,
-      default: ''
-    },
     height: {
       type: Number,
       default: 162
+    },
+    errorMessage: {
+      type: String,
+      default: ''
     }
   },
   methods: {
@@ -97,6 +97,7 @@ export default {
     margin-bottom: 20px;
     background-color: #fff;
     box-shadow: 0px 3px 6px rgba(145, 154, 159, 0.08);
+    border: 1px solid transparent;
 
     &--active, &--valued {
       .text-field__label {
@@ -117,7 +118,7 @@ export default {
     }
 
     &--error {
-      border: 1px solid #FF4148;
+      border-color: #FF4148;
 
       .text-field__input {
         color: #FF4148;
@@ -169,9 +170,11 @@ export default {
 
     &__message {
       position: absolute;
-      top: calc(100% + 3px);
-      left: 3px;
-      color: red;
+      top: calc(100% + 1px);
+      left: 5px;
+      color: #FF4148;
+      font-size: 13px;
+      font-weight: 400;
     }
   }
 </style>

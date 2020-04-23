@@ -63,16 +63,6 @@ export default {
     margin: 0 auto;
   }
 
-  .color {
-    &--primary {
-      color: #00B6DC;
-    }
-
-    &--white {
-      color: #FFF;
-    }
-  }
-
   h1 {
     font-size: 40px;
     font-weight: 200;

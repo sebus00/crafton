@@ -13,9 +13,9 @@
     </ul>
     <div class="container carousel__container">
       <div class="carousel__text">
-        <h1 class="color--white">
+        <h1>
           Będziesz się uczyć z ciekawością. <br>
-          <span class="color--primary">Obiecujemy.</span>
+          <span>Obiecujemy.</span>
         </h1>
         <div class="carousel__links">
           <a class="carousel__link" href="/" target="_blank">Zobacz więcej</a>
@@ -81,6 +81,8 @@ export default {
 </script>
 
 <style scoped lang="scss">
+  @import "../assets/styles/variables.scss";
+
   .carousel {
     height: 100vh;
     width: 100%;
@@ -168,7 +170,7 @@ export default {
       }
 
       &--active {
-        background-color: #FFCD19;
+        background-color: $secondary-color;
       }
     }
 
@@ -190,6 +192,14 @@ export default {
 
     &__text {
       margin-bottom: 50px;
+
+      h1 {
+        color: #FFF;
+
+        span {
+          color: $primary-color;
+        }
+      }
     }
 
     &__links {
