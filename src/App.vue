@@ -1,7 +1,7 @@
 <template>
   <div>
-    <Navigation :logo='logo' :menuItems='menuItems' />
-    <Carousel :images='carouselImages' />
+    <Navigation/>
+    <Carousel />
     <ForWhom />
     <ForWhat />
     <WithWho />
@@ -17,22 +17,9 @@ import ForWhat from './components/RowSections/ForWhat';
 import WithWho from './components/RowSections/WithWho';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
-import sliderImage1 from './assets/images/sliderImage.jpg';
-import logo from './assets/images/logo.png';
 
 export default {
   name: 'App',
-  data() {
-    return {
-      carouselImages: [
-        sliderImage1,
-        'https://unsplash.it/1500/800',
-        'https://unsplash.it/1400/800'
-      ],
-      logo,
-      menuItems: ['I stopnia', 'II stopnia', 'Podyplomowe', 'Szkolenia', 'Usługi']
-    };
-  },
   components: {
     Carousel, Navigation, ForWhom, ForWhat, WithWho, Contact, Footer
   }
@@ -58,9 +45,13 @@ export default {
 
   .container {
     width: 100%;
-    max-width: 1220px;
+    max-width: 1240px;
     padding: 0 15px;
     margin: 0 auto;
+
+    @media screen and (min-width: 1264px) {
+      padding: 0;
+    }
   }
 
   h1 {

@@ -12,7 +12,7 @@
     </div>
     <div slot="image" class="row-section__image-side">
       <div class="row-section__image-side__wrapper">
-        <img :src="sectionImage" alt="" />
+        <img :src="sectionImage" alt="" :style="{bottom: '40px', left: '40px'}" />
         <div class="row-section__image-side__label">Nowość</div>
       </div>
     </div>

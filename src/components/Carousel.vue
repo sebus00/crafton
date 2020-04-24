@@ -1,5 +1,5 @@
 <template>
-  <div class='carousel'>
+  <div class="carousel">
     <ul
       class="carousel__wrapper"
       :style="[{transform: `translateX(-${activeItem * 100}%)`}]"
@@ -29,13 +29,13 @@
           :class="['carousel__arrow', 'carousel__arrow--left']"
           @click="moveCarousel(activeItem - 1)"
         >
-          <img src="../assets/images/arrowLeft.png" alt=""/>
+          <div class="carousel__arrow__icon" />
         </button>
         <button
           :class="['carousel__arrow', 'carousel__arrow--right']"
           @click="moveCarousel(activeItem + 1)"
         >
-          <img src="../assets/images/arrowRight.png" alt=""/>
+          <div class="carousel__arrow__icon" />
         </button>
       </div>
     </div>
@@ -54,25 +54,39 @@
 </template>
 
 <script>
+import sliderImage1 from '../assets/images/sliderImage1.jpg';
+import sliderImage2 from '../assets/images/sliderImage2.jpg';
+import sliderImage3 from '../assets/images/sliderImage3.jpg';
+import sliderImage4 from '../assets/images/sliderImage4.jpg';
 
 export default {
   name: 'Carousel',
   data() {
     return {
-      activeItem: 0
+      activeItem: 0,
+      images: [
+        sliderImage1,
+        sliderImage2,
+        sliderImage3,
+        sliderImage4
+      ],
+      changeInterval: null
     };
   },
-  props: {
-    images: {
-      type: Array,
-      required: true
-    }
+  mounted() {
+    this.changeInterval = setInterval(() => {
+      this.moveCarousel(this.activeItem + 1);
+    }, 5000);
   },
   methods: {
     modulo(n, m) {
       return ((n % m) + m) % m;
     },
     moveCarousel(index) {
+      clearInterval(this.changeInterval);
+      this.changeInterval = setInterval(() => {
+        this.moveCarousel(this.activeItem + 1);
+      }, 5000);
       this.activeItem = this.modulo(index, this.images.length);
     }
   }
@@ -95,7 +109,7 @@ export default {
       transform: translateX(-50%);
       top: 0;
       height: 100%;
-      padding-top: calc(25vh - 60px);
+      padding-top: 25vh;
       padding-left: 50px;
 
       @media screen and (min-width: 600px) {
@@ -138,7 +152,7 @@ export default {
         flex-direction: column;
         bottom: unset;
         top: 50%;
-        right: 50px;
+        right: 30px;
         transform: translateY(-50%);
       }
 
@@ -183,6 +197,21 @@ export default {
       background: none;
       border: 0;
       cursor: pointer;
+      position: relative;
+
+      &--left {
+        margin-right: 5px;
+
+        .carousel__arrow__icon {
+          @include arrow-icon($secondary-color, 1, 180deg);
+        }
+      }
+
+      &--right {
+        .carousel__arrow__icon {
+          @include arrow-icon(#FFF, 1, 0);
+        }
+      }
 
       &:focus {
         outline: unset;

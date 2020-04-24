@@ -1,5 +1,4 @@
 <template>
-  <!-- eslint-disable max-len -->
   <section class="footer">
     <div class="footer__wrapper container">
       <div class="footer__address">
@@ -7,18 +6,6 @@
         <div class="footer__address__item">61-719 Poznań</div>
         <div class="footer__address__item">tel. 61 27 11 000</div>
         <div class="footer__map" id="google-maps-wrapper">
-<!--          <iframe-->
-<!--            src="https://maps.googleapis.com/maps/api/staticmap?key=AIzaSyAzvtXXZKy5qlZGpVgjIxneAwYvPQZiOXU&center=52.416805389617295,16.93222391655899&zoom=18&format=png&maptype=roadmap&style=feature:administrative%7Cvisibility:off&style=feature:administrative%7Celement:geometry%7Cvisibility:off&style=feature:landscape%7Cvisibility:off%7Cweight:1&style=feature:poi%7Cvisibility:off&style=feature:road%7Celement:labels.icon%7Cvisibility:off&style=feature:transit%7Cvisibility:off&style=feature:transit.line%7Cvisibility:off&style=feature:transit.station%7Cvisibility:off&style=feature:water%7Cvisibility:off&size=480x360"-->
-<!--            width="200" height="200" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0">-->
-<!--          </iframe>-->
-
-<!--          <iframe-->
-<!--            src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAzvtXXZKy5qlZGpVgjIxneAwYvPQZiOXU&center=52.416805389617295,16.93222391655899&zoom=18&format=png&maptype=roadmap&style=feature:administrative%7Cvisibility:off&style=feature:administrative%7Celement:geometry%7Cvisibility:off&style=feature:landscape%7Cvisibility:off%7Cweight:1&style=feature:poi%7Cvisibility:off&style=feature:road%7Celement:labels.icon%7Cvisibility:off&style=feature:transit%7Cvisibility:off&style=feature:transit.line%7Cvisibility:off&style=feature:transit.station%7Cvisibility:off&style=feature:water%7Cvisibility:off&size=480x360"-->
-<!--            width="200" height="200" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0">-->
-<!--          </iframe>-->
-
-<!--          <iframe width="600" height="450" frameborder="0" style="border:0"-->
-<!--                  src="https://www.google.com/maps/embed/v1/place?q=poznan&key=AIzaSyAzvtXXZKy5qlZGpVgjIxneAwYvPQZiOXU" allowfullscreen></iframe>-->
         </div>
       </div>
       <div class="footer__links">

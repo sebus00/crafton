@@ -15,13 +15,13 @@
       </p>
       <ul>
         Wymagane od kandydata:
-        <li>Ukończone studia wyższe</li>
-        <li>Przygotowanie pedagogiczne</li>
+        <li><div class="arrow-icon" /> Ukończone studia wyższe</li>
+        <li><div class="arrow-icon" /> Przygotowanie pedagogiczne</li>
       </ul>
     </div>
     <div slot="image" class="row-section__image-side">
       <div class="row-section__image-side__wrapper">
-        <img :src="sectionImage" alt="" />
+        <img :src="sectionImage" alt="" :style="{top: '25px', left: '90px'}"/>
       </div>
     </div>
   </RowSection>

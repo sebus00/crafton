@@ -25,7 +25,11 @@ export default {
   .row-section {
     display: flex;
     align-items: center;
-    padding: 100px 0;
+    padding-top: 100px;
+
+    @media screen and (min-width: 600px) {
+      padding: 100px 0;
+    }
 
     @media screen and (min-width: 1264px) {
       height: 100vh;
@@ -48,7 +52,7 @@ export default {
           flex-direction: row-reverse;
 
           .row-section__text-side {
-            margin: 0 0 0 100px;
+            margin: 0 0 0 70px;
           }
         }
       }
@@ -62,7 +66,7 @@ export default {
       margin: 0 0 60px 0;
 
       @media screen and (min-width: 960px) {
-        margin: 0 80px 0 0;
+        margin: 0 60px 0 0;
       }
 
       p {
@@ -76,22 +80,33 @@ export default {
 
       ul {
         list-style: none;
-        margin: 48px 0 0 0;
+        margin: 55px 0 0 0;
         padding: 0;
 
         li {
           margin-top: 28px;
+          display: flex;
+          align-items: center;
+          width: fit-content;
+
+          .arrow-icon {
+            margin-right: 16px;
+            display: inline-block;
+            @include arrow-icon($primary-color, 0.6, 0);
+          }
         }
       }
     }
 
     &__image-side {
-      max-width: 100%;
-      width: 495px;
-      height: 515px;
       overflow: hidden;
       box-shadow: 0 11px 35px rgba(95, 95, 95, 0.22);
       position: relative;
+
+      @media screen and (min-width: 600px) {
+        width: 490px;
+        height: 510px;
+      }
 
       &__wrapper {
         display: flex;
@@ -99,6 +114,15 @@ export default {
         align-items: center;
         width: 100%;
         height: 100%;
+
+        >img {
+          width: 100%;
+
+          @media screen and (min-width: 600px) {
+            position: relative;
+            width: auto;
+          }
+        }
       }
 
       &__label {

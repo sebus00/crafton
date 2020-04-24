@@ -36,6 +36,11 @@ export default {
 
     &__wrapper {
       position: relative;
+      max-width: 100%;
+
+      iframe {
+        max-width: 100%;
+      }
     }
 
     &__close {
@@ -44,9 +49,13 @@ export default {
       background: $primary-color;
       border: none;
       position: absolute;
-      right: -50px;
+      right: 10px;
       top: -50px;
       cursor: pointer;
+
+      @media screen and (min-width: 960px) {
+        right: -50px;
+      }
 
       &:focus {
         outline: unset;

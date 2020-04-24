@@ -15,7 +15,7 @@
       </div>
       <div slot="image" class="row-section__image-side row-section__image-side--video">
         <div class="row-section__image-side__wrapper">
-          <img :src="sectionImage" alt="" />
+          <img :src="sectionImage" alt="" :style="{top: '40px', right: '90px'}" />
           <div class="row-section__image-side__play" @click="openVideoModal">
             <img :src="playImage" alt="" />
           </div>

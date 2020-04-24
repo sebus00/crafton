@@ -98,7 +98,7 @@ export default {
     align-items: flex-end;
     margin-bottom: 20px;
     background-color: #fff;
-    box-shadow: 0px 3px 6px rgba(145, 154, 159, 0.08);
+    box-shadow: 0 3px 6px rgba(145, 154, 159, 0.08);
     border: 1px solid transparent;
 
     &--active, &--valued {

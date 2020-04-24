@@ -184,7 +184,7 @@ export default {
       line-height: 22px;
       color: #FFF;
       opacity: 0;
-      transition: transform 1s cubic-bezier(0.31, 0.25, 0.5, 1.5), opacity 0.1s ease-in-out;
+      transition: transform 1s cubic-bezier(0.31, 0.25, 0.5, 1.3), opacity 0.1s ease-in-out;
 
       &--visible {
         opacity: 1;

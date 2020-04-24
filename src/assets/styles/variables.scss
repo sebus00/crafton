@@ -7,3 +7,35 @@ $primary-color: #00B6DC;
 $secondary-color: #FFCD19;
 
 $error-color: #FF4148;
+
+@mixin arrow-icon($color, $scale, $rotate) {
+  background: $color;
+  height: 3px;
+  width: 26px;
+  position: relative;
+  cursor: pointer;
+  transform: scale($scale) rotate($rotate);
+
+  &:before,
+  &:after {
+    content: "";
+    background: $color;
+    position: absolute;
+    height: 4px;
+    width: 15px;
+  }
+
+  &:before {
+    right: -3px;
+    bottom: -4px;
+    transform: rotate(-45deg);
+  }
+
+  &:after {
+    right: -3px;
+    top: -4px;
+    transform: rotate(45deg);
+  }
+}
+
+

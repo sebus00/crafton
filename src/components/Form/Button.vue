@@ -39,6 +39,7 @@ export default {
     box-shadow: 0 11px 24px rgbaPrimaryColor(.12);;
     white-space: nowrap;
     cursor: pointer;
+    border: none;
 
     &:hover {
       box-shadow: 0 10px 16px rgbaPrimaryColor(.5);;

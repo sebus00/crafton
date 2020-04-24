@@ -25,6 +25,11 @@ export default {
     display: flex;
     align-items: center;
     padding: 50px 0;
+    margin-top: 100px;
+
+    @media screen and (min-width: 600px) {
+      margin: 0;
+    }
 
     @media screen and (min-width: 1264px) {
       height: 100vh;
