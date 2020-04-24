@@ -31,6 +31,7 @@ module.exports = {
     'no-trailing-spaces': 'off',
     'object-curly-newline': 'off',
     'no-param-reassign': 'off',
-    'func-names': 'off'
+    'func-names': 'off',
+    'no-plusplus': 'off'
   }
 };

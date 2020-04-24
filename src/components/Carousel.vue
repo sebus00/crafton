@@ -4,11 +4,11 @@
       class="carousel__wrapper"
       :style="[{transform: `translateX(-${activeItem * 100}%)`}]"
     >
-      <div
+      <li
         v-for="(item, index) in images"
         :key="`carouselItem${index}`"
         :class="['carousel__item', {'carousel__item--active' : index === activeItem}]"
-        :style="[{ backgroundImage: `url(${item})` }, {left: `${index * 100}%`}]"
+        :style="[{backgroundImage: item.loaded ? `url(${item.src})` : 'none'}, {left: `${index * 100}%`}]"
       />
     </ul>
     <div class="container carousel__container">
@@ -65,24 +65,34 @@ export default {
     return {
       activeItem: 0,
       images: [
-        sliderImage1,
-        sliderImage2,
-        sliderImage3,
-        sliderImage4
+        { src: sliderImage1, loaded: false },
+        { src: sliderImage2, loaded: false },
+        { src: sliderImage3, loaded: false },
+        { src: sliderImage4, loaded: false }
       ],
       changeInterval: null
     };
   },
   mounted() {
-    this.changeInterval = setInterval(() => {
-      this.moveCarousel(this.activeItem + 1);
-    }, 5000);
+    for (let i = 0; i < this.images.length; i++) {
+      const img = new Image();
+      img.onload = () => {
+        this.images[i].loaded = true;
+        if (this.images.reduce((acc, { loaded }) => loaded, true)) {
+          this.changeInterval = setInterval(() => {
+            this.moveCarousel(this.activeItem + 1);
+          }, 5000);
+        }
+      };
+      img.src = this.images[i].src;
+    }
   },
   methods: {
     modulo(n, m) {
       return ((n % m) + m) % m;
     },
     moveCarousel(index) {
+      console.log(this.images);
       clearInterval(this.changeInterval);
       this.changeInterval = setInterval(() => {
         this.moveCarousel(this.activeItem + 1);
@@ -138,6 +148,7 @@ export default {
       position: absolute;
       top: 0;
       bottom: 0;
+      display: block;
     }
 
     &__indicators {
