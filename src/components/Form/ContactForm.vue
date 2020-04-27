@@ -15,7 +15,7 @@
       @input="onInputHandler('email', $event)"
     />
     <TextField
-      tag="textarea" name="message" label="Treść wiadomości" :height="162" :value="message.value" :error="message.error"
+      tag="textarea" name="message" label="Treść wiadomości" :height="159" :value="message.value" :error="message.error"
       :error-message="message.errorMessage" @input="onInputHandler('message', $event)"
     />
     <CheckBox
@@ -147,7 +147,7 @@ export default {
   .contact-form {
     width: 100%;
     max-width: 582px;
-    margin-top: 48px;
+    margin-top: 29px;
     display: flex;
     flex-direction: column;
     align-items: center;

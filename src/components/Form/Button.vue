@@ -36,7 +36,7 @@ export default {
     align-items: center;
     justify-content: center;
     background: $primary-color;
-    box-shadow: 0 11px 24px rgbaPrimaryColor(.12);;
+    box-shadow: 0 11px 24px rgbaPrimaryColor(.12);
     white-space: nowrap;
     cursor: pointer;
     border: none;

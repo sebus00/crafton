@@ -103,7 +103,7 @@ export default {
 
     &--active, &--valued {
       .text-field__label {
-        transform: translateY(-75%) scale(.75);
+        transform: translateY(-73%) scale(.73);
       }
 
       .text-field__input {
@@ -146,13 +146,13 @@ export default {
     }
 
     &__input {
-      height: 52px;
+      height: 49px;
       padding-left: 15px;
       width: 100%;
       font-size: 15px;
       line-height: 32px;
       font-weight: 600;
-      color: #000;
+      color: $black-text-color;
       border: none;
       flex: 1 1 auto;
 

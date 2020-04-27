@@ -92,7 +92,6 @@ export default {
       return ((n % m) + m) % m;
     },
     moveCarousel(index) {
-      console.log(this.images);
       clearInterval(this.changeInterval);
       this.changeInterval = setInterval(() => {
         this.moveCarousel(this.activeItem + 1);

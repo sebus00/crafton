@@ -50,7 +50,7 @@ export default {
 
     h2 {
       font-weight: 600;
-      font-size: 16px;
+      font-size: 15px;
       line-height: 32px;
       color: #7B94A5;
     }

@@ -52,7 +52,7 @@ export default {
           flex-direction: row-reverse;
 
           .row-section__text-side {
-            margin: 0 0 0 70px;
+            margin: 0 0 0 100px;
           }
         }
       }
@@ -63,14 +63,18 @@ export default {
       color: #333;
       font-weight: 400;
       font-size: 18px;
-      margin: 0 0 60px 0;
+      line-height: 32px;
+      margin: 0 0 100px 0;
 
       @media screen and (min-width: 960px) {
-        margin: 0 60px 0 0;
+        margin: 0 100px 0 0;
+      }
+      
+      h2 {
+        margin-bottom: 16px;
       }
 
       p {
-        line-height: 32px;
         margin: 32px 0;
       }
 
@@ -80,11 +84,10 @@ export default {
 
       ul {
         list-style: none;
-        margin: 55px 0 0 0;
+        margin: 64px 0 0;
         padding: 0;
 
         li {
-          margin-top: 28px;
           display: flex;
           align-items: center;
           width: fit-content;
@@ -104,8 +107,8 @@ export default {
       position: relative;
 
       @media screen and (min-width: 600px) {
-        width: 490px;
-        height: 510px;
+        width: 491px;
+        height: 513px;
       }
 
       &__wrapper {
@@ -177,7 +180,7 @@ export default {
             }
 
             &::before {
-              width: 135px;
+              width: 13px;
               height: 135px;
               opacity: 0.2;
             }

@@ -1,12 +1,14 @@
-$primary-color: #00B6DC;
+$primary-color: #00b6dc;
 
 @function rgbaPrimaryColor($opacity) {
   @return rgba(0, 182, 220, $opacity);
 }
 
-$secondary-color: #FFCD19;
+$secondary-color: #ffcd19;
 
-$error-color: #FF4148;
+$error-color: #ff4148;
+
+$black-text-color: #002841;
 
 @mixin arrow-icon($color, $scale, $rotate) {
   background: $color;
@@ -37,5 +39,3 @@ $error-color: #FF4148;
     transform: rotate(45deg);
   }
 }
-
-
